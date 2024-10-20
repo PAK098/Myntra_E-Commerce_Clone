@@ -1,0 +1,160 @@
+
+<style>
+      .create-post {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #2e0b0b;
+      }
+
+      .create-post fieldset {
+        border: none;
+      }
+
+      .create-post legend {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .create-post .form-label {
+        font-weight: bold;
+      }
+
+      .create-post .form-control {
+        margin-bottom: 15px;
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .create-post button[type="submit"] {
+        width: 100%;
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+        padding: 10px;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .create-post button[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+</style>
+<Form method="POST" class="create-post" action="/products"  enctype="application/x-www-form-urlencoded">
+  <fieldset>
+    <div class="mb-3">
+      <legend htmlFor="id" class="form-label">
+        Enter your User Id here
+      </legend>
+      <input
+        type="text"
+        name="id"
+        class="form-control"
+        id="id"
+        placeholder="product Id"
+      />
+    </div>
+    <div class="mb-3">
+      <label htmlFor="title" class="form-label">
+        Post Title
+      </label>
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        id="title"
+        placeholder="How are you feeling today..."
+      />
+    </div>
+
+    <div class="mb-3">
+      <label htmlFor="thumbnail" class="form-label">
+        Thumbnail
+      </label>
+      <input
+        type="text"
+        name="thumbnail"
+        class="form-control"
+        id="thumbnail"
+        placeholder="How are you feeling today..."
+      />
+    </div>
+    <div class="mb-3">
+      <label htmlFor="discountPercentage" class="form-label">
+        DiscountPercentage
+      </label>
+      <input
+        type="text"
+        name="discountPercentage"
+        class="form-control"
+        id="discountPercentage"
+        placeholder="How are you feeling today..."
+      />
+    </div>
+    <div class="mb-3">
+      <label htmlFor="category" class="form-label">
+        Category
+      </label>
+      <input
+        type="text"
+        name="category"
+        class="form-control"
+        id="category"
+        placeholder="How are you feeling today..."
+      />
+    </div>
+
+    <div class="mb-3">
+      <label htmlFor="discription" class="form-label">
+        Discription
+      </label>
+      
+      <textarea
+        
+        name="discription"
+        rows="4"
+        class="form-control"
+        id="discription"
+        placeholder="Tell us more about it">
+      </textarea>
+    </div>
+    <div class="mb-3">
+      <label htmlFor="price" class="form-label">
+        Price
+      </label>
+      <input
+        type="text"
+        name="price"
+        class="form-control"
+        id="price"
+        placeholder="What is  the price of this product"
+      />
+    </div>
+    <div class="mb-3">
+      <label htmlFor="brand" class="form-label">
+        Enter your Brand here
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        id="brand"
+        name="brand"
+        placeholder="Please enter your Product's Brand"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      onChange={handleSubmit}
+    >
+      Submit
+    </button>
+  </fieldset>
+</Form>
