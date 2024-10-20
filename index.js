@@ -12,6 +12,7 @@ const jwt = require("jsonwebtoken");
 const productRouter = express.Router();
 const userRouter = express.Router();
 const authRouter = express.Router();
+const paymentRouter = express.Router();
 
 //Database connection
 async function main() {
@@ -53,10 +54,12 @@ io.on("Connection", (socket) => {
   }, 5000);
 });
 // Middleware
-server.use(cors());
+// server.use(cors());
+server.use(cors({ origin: "http://localhost:5173" }));
 server.use(express.json());
 server.use(express.urlencoded());
 // Routes
+server.use("/payment", paymentRouter);
 server.use("/auth", authRouter);
 server.use("/products", productRouter);
 server.use("/users", auth, userRouter);
@@ -64,6 +67,9 @@ server.use("/users", auth, userRouter);
 const authController = require("./controller/auth");
 authRouter.post("/signUp", authController.signUp);
 authRouter.post("/login", authController.login);
+//payment
+const paymentController = require("./controller/paymnet.js");
+paymentRouter.post("/", paymentController.payment);
 
 const productController = require("./controller/product");
 productRouter

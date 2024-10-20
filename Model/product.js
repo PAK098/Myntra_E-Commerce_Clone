@@ -11,7 +11,12 @@ const productSchema = new Schema({
     max: [50, "Wrong max Discount"],
   },
   discription: String,
-  category: [{ type: String, required: true }],
+  quantity: {
+    type: Number,
+    required: true,
+    min: 0, // Ensures that the quantity cannot be negative
+  },
+  category: { type: [String], required: true },
   price: { type: Number, min: [0, "Worng min Price"], required: true },
   discountPercentage: {
     type: Number,
@@ -24,8 +29,6 @@ const productSchema = new Schema({
     max: [5, "Wrong max rating"],
   },
   brand: { type: String, required: true },
-  returnPeriod: { type: Number, required: true },
-  deliveryDate: { type: Date, default: Date.now },
   thumbnail: { type: String, required: true },
   images: [String],
 });
